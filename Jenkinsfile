@@ -7,5 +7,10 @@ pipeline {
                 sh 'ls'
             }
         }
+        stage('test') {
+            steps {
+                echo 'test stage started'
+            }
+        }
     }
 }
