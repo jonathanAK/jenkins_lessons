@@ -4,7 +4,9 @@ pipeline {
         stage('build') {
             steps {
                 echo 'build stage started'
-                sh 'ls'
+                nodejs('Node16') {
+                    sh 'npm install'
+                }
             }
         }
         stage('test') {
