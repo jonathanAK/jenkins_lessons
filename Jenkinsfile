@@ -5,7 +5,10 @@ pipeline {
             steps {
                 echo 'build stage started'
                 nodejs('Node16') {
-                    sh 'npm install'
+                    docker('docker'){
+                        sh 'npm install'
+                        sh 'docker version'
+                    }
                 }
             }
         }
