@@ -22,7 +22,10 @@ pipeline {
             }
             steps {
                 echo 'deploy stage started'
-                s3Upload consoleLogLevel: 'INFO', dontSetBuildResultOnFailure: false, dontWaitForConcurrentBuildCompletion: false, entries: [[bucket: 'psi2021-demo-public', excludedFile: '', flatten: false, gzipFiles: false, keepForever: false, managedArtifacts: false, noUploadOnFailure: false, selectedRegion: 'us-iso-east-1', showDirectlyInBrowser: false, sourceFile: './demo', storageClass: 'STANDARD', uploadFromSlave: false, useServerSideEncryption: false]], pluginFailureResultConstraint: 'FAILURE', profileName: 'S3_jenkins_profile', userMetadata: []
+                withAWS(region:'<AWS Region: like us-west-2>', credentials:'RDG AWS') {
+                  s3Delete(bucket: 'psi2021-demo-public', path:'**/*')
+                  s3Upload(bucket: 'psi2021-demo-public', includePathPattern:'**/*')
+                }]
             }
         }
     }
