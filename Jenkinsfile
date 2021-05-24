@@ -15,6 +15,9 @@ pipeline {
             }
         }
         stage('deploy to s3') {
+            environment{
+                AWS_TOKEN = credentials('AWS')
+            }
             when{
                 expression {
                     BRANCH_NAME == 'feature_color'
