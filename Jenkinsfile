@@ -25,7 +25,7 @@ pipeline {
                 withAWS(region:'<AWS Region: like us-west-2>', credentials:'RDG AWS') {
                   s3Delete(bucket: 'psi2021-demo-public', path:'**/*')
                   s3Upload(bucket: 'psi2021-demo-public', includePathPattern:'**/*')
-                }]
+                }
             }
         }
     }
