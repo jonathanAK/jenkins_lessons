@@ -17,7 +17,7 @@ pipeline {
         stage('deploy to s3') {
             when{
                 expression {
-                    BRANCH_NAME == 'master'
+                    BRANCH_NAME == 'feature_color'
                 }
             }
             steps {
