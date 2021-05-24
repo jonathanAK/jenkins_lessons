@@ -26,7 +26,7 @@ pipeline {
             steps {
                 echo 'deploy stage started'
                 withAWS(region:'us-east-1', credentials:'AWS') {
-                    s3Upload(bucket:"my-bucket", path:'demo/', includePathPattern:'**/*', workingDir:'demo')
+                    s3Upload(bucket:"psi2021-demo-public", path:'/', includePathPattern:'**/*', workingDir:'demo')
                 }
             }
         }
