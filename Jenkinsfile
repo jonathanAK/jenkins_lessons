@@ -22,7 +22,7 @@ pipeline {
             }
             steps {
                 echo 'deploy stage started'
-                withAWS(region:'us-east-1', credentials:'RDG AWS') {
+                withAWS(region:'us-east-1', credentials:'AWS') {
                     s3Upload(bucket:"my-bucket", path:'demo/', includePathPattern:'**/*', workingDir:'demo')
                 }
             }
