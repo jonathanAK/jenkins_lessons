@@ -25,7 +25,7 @@ pipeline {
             }
             steps {
                 echo 'deploy stage started'
-                withAWS(region:'us-east-1', credentials:'AWS_TOKEN') {
+                withAWS(region:'us-east-1', credentials:'$AWS_TOKEN') {
                     s3Upload(bucket:"my-bucket", path:'demo/', includePathPattern:'**/*', workingDir:'demo')
                 }
             }
